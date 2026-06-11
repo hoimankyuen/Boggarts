@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createOnAwake: 1
-  dontDestroyOnLoad: 1
+  dontDestroyOnLoad: 0
   customCameraPrefab: {fileID: 0}
   followObject: {fileID: 1652283984}
   parentObject: {fileID: 0}
