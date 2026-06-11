@@ -1,9 +1,14 @@
+using Igloo.Common;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoggartSceneManager : MonoBehaviour
 {
-    [HideInInspector]
-    public BoggartSceneManager Instance;
+    public static BoggartSceneManager Instance;
+
+    [SerializeField] private IglooManager m_iglooManager;
+    [SerializeField] private SceneAsset m_gate1;
     
     private void Awake()
     {
@@ -17,5 +22,13 @@ public class BoggartSceneManager : MonoBehaviour
         }
         
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SceneManager.LoadScene(m_gate1.name);
+        }
     }
 }

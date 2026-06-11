@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Choice
   IsGood: 0
   Sound: {fileID: 0}
-  Scene: {fileID: 0}
+  Scene: {fileID: 102900000, guid: 314d647724261c32db88743fe398adf5, type: 3}

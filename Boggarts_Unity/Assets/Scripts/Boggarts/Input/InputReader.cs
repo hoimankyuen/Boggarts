@@ -7,8 +7,11 @@ namespace Input
 {
     public interface IInputReader
     {
-        Vector2 MoveDirection { get; }
         void EnablePlayerActions();
+        void OnButton_North(InputAction.CallbackContext context);
+        void OnButton_West(InputAction.CallbackContext context);
+        void OnButton_South(InputAction.CallbackContext context);
+        void OnButton_East(InputAction.CallbackContext context);
     }
     
     [CreateAssetMenu(fileName = "InputReader", menuName = "Input/InputReader")]
@@ -20,8 +23,6 @@ namespace Input
         public UnityAction Button_South = delegate {  };
 
         private InputSystem_Actions m_inputActions;
-
-        public Vector2 MoveDirection { get; }
 
         public void EnablePlayerActions()
         {
