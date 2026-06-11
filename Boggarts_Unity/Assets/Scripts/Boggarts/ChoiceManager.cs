@@ -1,6 +1,6 @@
 using Input;
+using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ChoiceManager : MonoBehaviour
 {
@@ -9,6 +9,11 @@ public class ChoiceManager : MonoBehaviour
     public static ChoiceManager Instance;
 
     public Gate m_currentGate;
+
+    public Transform m_gate_1_contents;
+    public Transform m_gate_2_contents;
+    public Transform m_gate_3_contents;
+    public Transform m_gate_4_contents;
     
     private void Awake()
     {
@@ -35,24 +40,26 @@ public class ChoiceManager : MonoBehaviour
     private void OnButtonNorth()
     {
         Debug.Log("OnButtonNorth");
-        SceneManager.LoadScene(m_currentGate.Choices[0].Scene.name);
+        m_gate_1_contents.gameObject.SetActive(true);
     }
 
     private void OnButtonEast()
     {
         Debug.Log("OnButtonEast");
-        SceneManager.LoadScene(m_currentGate.Choices[1].Scene.name);
+        m_gate_2_contents.gameObject.SetActive(true);
+    }
+    
+    private void OnButtonSouth()
+    {
+        Debug.Log("OnButtonSouth");
+        m_gate_3_contents.gameObject.SetActive(true);
     }
 
     private void OnButtonWest()
     {
         Debug.Log("OnButtonWest");
-        SceneManager.LoadScene(m_currentGate.Choices[2].Scene.name);
+        m_gate_4_contents.gameObject.SetActive(true);
     }
 
-    private void OnButtonSouth()
-    {
-        Debug.Log("OnButtonSouth");
-        SceneManager.LoadScene(m_currentGate.Choices[3].Scene.name);
-    }
+    
 }

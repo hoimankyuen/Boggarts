@@ -8,9 +8,27 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/2D Igloo Example.unity
     guid: 0d13dfa14b5e46b44a2057177f5a191d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/3D Igloo Example.unity
     guid: 0f07e8609d1020b499acba3fe5d8d938
+  - enabled: 0
+    path: Assets/Scenes/Boggarts/Bootloader.unity
+    guid: c60987e40ae891d76afbdc417d64754d
+  - enabled: 1
+    path: Assets/Scenes/Boggarts/BoggartsGame.unity
+    guid: ea3423e4855d645a2bfad32bd9b61860
+  - enabled: 0
+    path: Assets/Scenes/Boggarts/Gate 2.unity
+    guid: 314d647724261c32db88743fe398adf5
+  - enabled: 0
+    path: Assets/Scenes/Boggarts/Gate 3.unity
+    guid: da72595c64ba572e2b829c9be58317b9
+  - enabled: 0
+    path: Assets/Scenes/Boggarts/Gate 4.unity
+    guid: 05206c3594357814cbe216ca079d4045
+  - enabled: 0
+    path: Assets/Scenes/Boggarts/Gate 5.unity
+    guid: 7ac90217bc2353e7b8a6f6a9feb615e3
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: fe84fc264dbf0a545be35aa9d15f8a06, type: 3}
   m_UseUCBPForAssetBundles: 0

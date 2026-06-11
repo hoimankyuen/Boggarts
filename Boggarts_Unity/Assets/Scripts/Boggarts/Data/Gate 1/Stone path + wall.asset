@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Choice
   IsGood: 0
   Sound: {fileID: 0}
-  Scene: {fileID: 102900000, guid: da72595c64ba572e2b829c9be58317b9, type: 3}
+  SceneName: Gate 2

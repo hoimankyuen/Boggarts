@@ -21,6 +21,8 @@ namespace Input
         public UnityAction Button_East = delegate {  };
         public UnityAction Button_West = delegate {  };
         public UnityAction Button_South = delegate {  };
+        
+        public UnityAction<float> Move = delegate {  };
 
         private InputSystem_Actions m_inputActions;
 
@@ -41,22 +43,27 @@ namespace Input
 
         public void OnButton_North(InputAction.CallbackContext context)
         {
-            Button_North.Invoke();
+            Button_North?.Invoke();
         }
 
         public void OnButton_West(InputAction.CallbackContext context)
         {
-            Button_West.Invoke();
+            Button_West?.Invoke();
         }
 
         public void OnButton_South(InputAction.CallbackContext context)
         {
-            Button_South.Invoke();
+            Button_South?.Invoke();
         }
 
         public void OnButton_East(InputAction.CallbackContext context)
         {
-            Button_East.Invoke();
+            Button_East?.Invoke();
+        }
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            Move?.Invoke(context.ReadValue<float>());
         }
     }
 }
