@@ -62,6 +62,7 @@ public class ChoiceManager : MonoBehaviour
         m_InputReader.Button_East += OnButtonEast;
         m_InputReader.Button_West += OnButtonWest;
         m_InputReader.Button_South += OnButtonSouth;
+        m_InputReader.Start += OnStartManually;
         
         m_gameState = GameState.Onboarding;
         
@@ -70,9 +71,16 @@ public class ChoiceManager : MonoBehaviour
         Invoke(nameof(TransitionToGateOne), 20f);
     }
 
+    private void OnStartManually()
+    {
+        CancelInvoke(nameof(TransitionToGateOne));
+        TransitionToGateOne();
+    }
+
     private void TransitionToGateOne()
     {
-        m_gameState++;
+        m_gameState = GameState.Gate1;
+        m_currentGate = m_gates[0];
         //m_fogs.ShowSurroundFogAt(true, false);
         //m_fogs.ShowCentreFogAt(true);
         
@@ -152,6 +160,8 @@ public class ChoiceManager : MonoBehaviour
         //HIDE ONBOARDING/CURRENT GATE CONTENTS
         //SHOW NEW GATE CONTENTS
         m_gameState++;
+        
+        m_currentGate = m_gates[(int)(m_gameState - 1)];
         
         switch (m_gameState)
         {

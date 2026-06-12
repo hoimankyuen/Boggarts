@@ -21,6 +21,7 @@ namespace Input
         public UnityAction Button_East = delegate {  };
         public UnityAction Button_West = delegate {  };
         public UnityAction Button_South = delegate {  };
+        public UnityAction Start = delegate {  };
         
         public UnityAction<float> Move = delegate {  };
 
@@ -64,6 +65,11 @@ namespace Input
         public void OnMove(InputAction.CallbackContext context)
         {
             Move?.Invoke(context.ReadValue<float>());
+        }
+
+        public void OnStart(InputAction.CallbackContext context)
+        {
+            Start?.Invoke();
         }
     }
 }
