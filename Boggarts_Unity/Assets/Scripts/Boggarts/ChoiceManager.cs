@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Input;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChoiceManager : MonoBehaviour
@@ -12,11 +14,15 @@ public class ChoiceManager : MonoBehaviour
 
     public Gate m_currentGate;
 
-    [Header("Gate Contents")]
+    [SerializeField] private Transform m_onboarding;
+    
+    [Header("Gate Gameobject Contents")]
     public Transform m_gate_1_contents;
     public Transform m_gate_2_contents;
     public Transform m_gate_3_contents;
     public Transform m_gate_4_contents;
+
+    [Header("Gate Data")] [SerializeField] private List<Gate> m_gates;
 
     [Header("Choice Circles")]
     public Transform m_choice_circle1;
@@ -24,6 +30,18 @@ public class ChoiceManager : MonoBehaviour
     public Transform m_choice_circle3;
     public Transform m_choice_circle4;
     
+    public enum GameState
+    {
+        Onboarding,
+        Gate1,
+        Gate2,
+        Gate3,
+        Gate4,
+        End
+    }
+    [Header("GameState")]
+    public GameState m_gameState;
+
     private void Awake()
     {
         if (Instance == null)
@@ -44,29 +62,51 @@ public class ChoiceManager : MonoBehaviour
         m_InputReader.Button_East += OnButtonEast;
         m_InputReader.Button_West += OnButtonWest;
         m_InputReader.Button_South += OnButtonSouth;
+        
+        m_gameState = GameState.Onboarding;
+        
+        //SHOW FOG EFFECTS
+        
+        Invoke(nameof(TransitionToGateOne), 20f);
+    }
+
+    private void TransitionToGateOne()
+    {
+        m_gameState++;
+        //m_fogs.ShowSurroundFogAt(true, fogPosition);
+        //m_fogs.ShowCentreFogAt(true, fogPosition);
+        
+        //HIDE ONBOARDING/CURRENT GATE CONTENTS
+        m_onboarding.gameObject.SetActive(false);
+        m_gate_1_contents.gameObject.SetActive(true);
+        
     }
 
     private void OnButtonNorth()
     {
         Debug.Log("OnButtonNorth");
+        if (m_gameState is GameState.Onboarding or GameState.End) return;
         EvaluateChoice(0);
     }
 
     private void OnButtonEast()
     {
         Debug.Log("OnButtonEast");
+        if (m_gameState is GameState.Onboarding or GameState.End) return;
         EvaluateChoice(1);
     }
     
     private void OnButtonSouth()
     {
         Debug.Log("OnButtonSouth");
+        if (m_gameState is GameState.Onboarding or GameState.End) return;
         EvaluateChoice(2);
     }
 
     private void OnButtonWest()
     {
         Debug.Log("OnButtonWest");
+        if (m_gameState is GameState.Onboarding or GameState.End) return;
         EvaluateChoice(3);
     }
 
@@ -111,5 +151,31 @@ public class ChoiceManager : MonoBehaviour
         
         //HIDE ONBOARDING/CURRENT GATE CONTENTS
         //SHOW NEW GATE CONTENTS
+        m_gameState++;
+        
+        switch (m_gameState)
+        {
+            case GameState.Gate2:
+                m_gate_1_contents.gameObject.SetActive(false);
+                m_gate_2_contents.gameObject.SetActive(true);
+                break;
+            case GameState.Gate3:
+                m_gate_2_contents.gameObject.SetActive(false);
+                m_gate_3_contents.gameObject.SetActive(true);
+                break;
+            case GameState.Gate4:
+                m_gate_3_contents.gameObject.SetActive(false);
+                m_gate_4_contents.gameObject.SetActive(true);
+                break;
+            case GameState.End:
+                m_gate_1_contents.gameObject.SetActive(false);
+                m_gate_2_contents.gameObject.SetActive(false);
+                m_gate_3_contents.gameObject.SetActive(false);
+                m_gate_4_contents.gameObject.SetActive(false);
+                break;
+            default:
+                break;
+        }
+
     }
 }
