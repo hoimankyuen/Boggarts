@@ -34456,7 +34456,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 10000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -38755,7 +38755,7 @@ MonoBehaviour:
   swirlingFogEffect: {fileID: 7759910112179779699}
   spookLightEffect: {fileID: 7005798593740185024}
   effectHeight: 0
-  swirlRadius: 3
+  swirlRadius: 4
   swirlSpeed: 75
   spookDisappearChance: 0.33
   spookRadius: 0.75
