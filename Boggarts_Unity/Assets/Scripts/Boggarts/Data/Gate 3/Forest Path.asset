@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae217f06800e4177181f5c39611c232b, type: 3}
-  m_Name: Path + moon
+  m_Name: Forest Path
   m_EditorClassIdentifier: Assembly-CSharp::Choice
   IsGood: 0
-  Sound: {fileID: 0}
-  Scene: {fileID: 0}
+  Sound: {fileID: 8300000, guid: b3c60f1e717352b36a373ee30daed9ba, type: 3}

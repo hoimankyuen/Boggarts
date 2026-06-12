@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae217f06800e4177181f5c39611c232b, type: 3}
   m_Name: Two leaning rocks
   m_EditorClassIdentifier: Assembly-CSharp::Choice
-  IsGood: 0
-  Sound: {fileID: 0}
-  Scene: {fileID: 0}
+  IsGood: 1
+  Sound: {fileID: 8300000, guid: 9c7bc3a46f7c9d41bb2aaff81b1141cc, type: 3}
