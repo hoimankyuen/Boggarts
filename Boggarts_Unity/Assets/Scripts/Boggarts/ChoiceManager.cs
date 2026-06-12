@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Input;
 using JetBrains.Annotations;
@@ -36,6 +37,9 @@ public class ChoiceManager : MonoBehaviour
     public Transform m_choice_circle2;
     public Transform m_choice_circle3;
     public Transform m_choice_circle4;
+
+
+    private Coroutine _transitionCoroutine;
     
     public enum GameState
     {
@@ -157,6 +161,31 @@ public class ChoiceManager : MonoBehaviour
     }
 
     private void TransitionToNextGate(bool angry, int choice)
+    {
+        if (_transitionCoroutine != null)
+            return;
+
+        _transitionCoroutine = StartCoroutine(TransitionToNextGateSequence(angry, choice));
+    }
+
+    private IEnumerator TransitionToNextGateSequence(bool angry, int choice)
+    {
+        m_fogs.ShowSwirlingAt(true, angry, Vector3.zero);
+        m_torchLights.ShowLight(false, Vector3.zero);
+        yield return new WaitForSeconds(10f);
+        
+        m_fogs.ShowSwirlingAt(false, false,  Vector3.zero);
+        m_fogs.ShowSurroundFogAt(true, false);
+        yield return new WaitForSeconds(1f);
+        
+        TransitionToNextGateInternal(angry, choice);
+        yield return new WaitForSeconds(1f);
+        
+        m_fogs.ShowSurroundFogAt(false, false);
+        _transitionCoroutine = null;
+    }
+    
+    private void TransitionToNextGateInternal(bool angry, int choice)
     {
         m_fogs.ShowSwirlingAt(true, angry, Vector3.zero);
         m_torchLights.ShowLight(false, Vector3.zero);

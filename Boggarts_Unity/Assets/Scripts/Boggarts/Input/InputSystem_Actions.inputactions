@@ -189,14 +189,14 @@
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "",
                     "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "a778e97d-61da-4c70-b67d-f61de14127d4",
+                    "id": "6be09f3c-7fa0-424d-b319-1b3652e2017c",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
