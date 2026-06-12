@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChoiceManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private InputReader m_InputReader;
     [SerializeField] private Fogs m_fogs;
     
@@ -11,10 +12,17 @@ public class ChoiceManager : MonoBehaviour
 
     public Gate m_currentGate;
 
+    [Header("Gate Contents")]
     public Transform m_gate_1_contents;
     public Transform m_gate_2_contents;
     public Transform m_gate_3_contents;
     public Transform m_gate_4_contents;
+
+    [Header("Choice Circles")]
+    public Transform m_choice_circle1;
+    public Transform m_choice_circle2;
+    public Transform m_choice_circle3;
+    public Transform m_choice_circle4;
     
     private void Awake()
     {
@@ -64,22 +72,44 @@ public class ChoiceManager : MonoBehaviour
 
     private void EvaluateChoice(int choice)
     {
-        //PLAY SOUND m_currentGate.Choices[choice].Sound
+        m_audioSource.clip = m_currentGate.Choices[choice].Sound;
+        m_audioSource.Play();
         
         if (m_currentGate.Choices[choice].IsGood)
         {
-            TransitionToNextGate(false);
+            TransitionToNextGate(true, choice);
         }
         else
         {
-            TransitionToNextGate(true);
+            TransitionToNextGate(false, choice);
         }
     }
 
-    private void TransitionToNextGate(bool angry)
+    private void TransitionToNextGate(bool angry, int choice)
     {
-        m_fogs.ShowSwirlingAt(true, angry, Vector3.zero);
-        //m_fogs.ShowSurroundFogAt(true);
-        m_fogs.ShowCentreFogAt(true, Vector3.zero);
+        Vector3 fogPosition = new Vector3();
+        
+        switch (choice)
+        {
+            case 0:
+                fogPosition = m_choice_circle1.position;
+                break;
+            case 1:
+                fogPosition = m_choice_circle2.position;
+                break;
+            case 2:
+                fogPosition = m_choice_circle3.position;
+                break;
+            case 3:
+                fogPosition = m_choice_circle4.position;
+                break;
+        }
+        
+        m_fogs.ShowSwirlingAt(true, angry, fogPosition);
+        //m_fogs.ShowSurroundFogAt(true, fogPosition);
+        //m_fogs.ShowCentreFogAt(true, fogPosition);
+        
+        //HIDE ONBOARDING/CURRENT GATE CONTENTS
+        //SHOW NEW GATE CONTENTS
     }
 }

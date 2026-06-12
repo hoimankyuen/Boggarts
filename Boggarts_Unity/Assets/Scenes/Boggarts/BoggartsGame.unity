@@ -261,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 158403153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -1.25, z: 0}
+  m_LocalPosition: {x: -2.5, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1047,6 +1047,10 @@ MonoBehaviour:
   m_gate_2_contents: {fileID: 1767848024}
   m_gate_3_contents: {fileID: 882419498}
   m_gate_4_contents: {fileID: 368119956}
+  m_choice_circle1: {fileID: 1206544519}
+  m_choice_circle2: {fileID: 158403154}
+  m_choice_circle3: {fileID: 1106010920}
+  m_choice_circle4: {fileID: 984458319}
 --- !u!4 &393745372
 Transform:
   m_ObjectHideFlags: 0
@@ -2506,7 +2510,7 @@ Transform:
   m_GameObject: {fileID: 984458318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.25, z: 3}
+  m_LocalPosition: {x: 0, y: -1.35, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2996,7 +3000,7 @@ Transform:
   m_GameObject: {fileID: 1106010919}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.25, z: -3}
+  m_LocalPosition: {x: 0, y: -1.35, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3380,6 +3384,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2005359561}
     m_Modifications:
+    - target: {fileID: 274984104927911567, guid: e6ce74d51075bdb47ab21c366f559a9a, type: 3}
+      propertyPath: effectHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 598545064236732981, guid: e6ce74d51075bdb47ab21c366f559a9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3473,7 +3481,7 @@ Transform:
   m_GameObject: {fileID: 1206544518}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -1.25, z: 0}
+  m_LocalPosition: {x: 2.5, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5057,7 +5065,6 @@ MonoBehaviour:
   customCameraPrefab: {fileID: 0}
   followObject: {fileID: 0}
   parentObject: {fileID: 0}
-  spoutResources: {fileID: 0}
   ndiResources: {fileID: 11400000, guid: 69304b86950074db7ba8caba75214004, type: 2}
 --- !u!4 &1679173601
 Transform:
