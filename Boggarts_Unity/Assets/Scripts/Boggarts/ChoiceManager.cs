@@ -8,6 +8,7 @@ public class ChoiceManager : MonoBehaviour
 {
     [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private AudioClip m_onboardingAudio;
+    [SerializeField] private AudioClip m_dogBarkAudio;
     [SerializeField] private InputReader m_InputReader;
     [SerializeField] private Fogs m_fogs;
     
@@ -187,6 +188,8 @@ public class ChoiceManager : MonoBehaviour
             case GameState.Gate2:
                 m_gate_1_contents.gameObject.SetActive(false);
                 m_gate_2_contents.gameObject.SetActive(true);
+                m_audioSource.clip = m_dogBarkAudio;
+                m_audioSource.Play();
                 break;
             case GameState.Gate3:
                 m_gate_2_contents.gameObject.SetActive(false);
@@ -203,6 +206,8 @@ public class ChoiceManager : MonoBehaviour
                 m_gate_4_contents.gameObject.SetActive(false);
                 break;
         }
+        
+        
 
     }
 }

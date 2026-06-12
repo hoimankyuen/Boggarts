@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gate
   Choices:
   - {fileID: 11400000, guid: 0a0ef94a92352f944a407e2660ac6d65, type: 2}
+  - {fileID: 11400000, guid: ff5a1f426adab08edb13ea8ae65fba65, type: 2}
   - {fileID: 11400000, guid: 24b96740167ee5b28ac8ad41a36dcf2d, type: 2}
   - {fileID: 11400000, guid: dfc16e2848372b0698f2d7aabff6ff2f, type: 2}
-  - {fileID: 11400000, guid: ff5a1f426adab08edb13ea8ae65fba65, type: 2}
