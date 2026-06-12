@@ -7,8 +7,10 @@ using UnityEngine;
 public class ChoiceManager : MonoBehaviour
 {
     [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioClip m_onboardingAudio;
     [SerializeField] private InputReader m_InputReader;
     [SerializeField] private Fogs m_fogs;
+    [SerializeField] private TorchLights m_torchLights;
     
     public static ChoiceManager Instance;
 
@@ -62,6 +64,7 @@ public class ChoiceManager : MonoBehaviour
         m_InputReader.Button_East += OnButtonEast;
         m_InputReader.Button_West += OnButtonWest;
         m_InputReader.Button_South += OnButtonSouth;
+        m_InputReader.Start += OnStartManually;
         
         m_gameState = GameState.Onboarding;
         
@@ -70,17 +73,7 @@ public class ChoiceManager : MonoBehaviour
         Invoke(nameof(TransitionToGateOne), 20f);
     }
 
-    private void TransitionToGateOne()
-    {
-        m_gameState++;
-        //m_fogs.ShowSurroundFogAt(true, false);
-        //m_fogs.ShowCentreFogAt(true);
-        
-        //HIDE ONBOARDING/CURRENT GATE CONTENTS
-        m_onboarding.gameObject.SetActive(false);
-        m_gate_1_contents.gameObject.SetActive(true);
-        
-    }
+    #region ButtonInputs
 
     private void OnButtonNorth()
     {
@@ -110,8 +103,37 @@ public class ChoiceManager : MonoBehaviour
         EvaluateChoice(3);
     }
 
+    #endregion
+    
+    
+    private void OnStartManually()
+    {
+        CancelInvoke(nameof(TransitionToGateOne));
+        TransitionToGateOne();
+    }
+
+    private void TransitionToGateOne()
+    {
+        m_gameState = GameState.Gate1;
+        m_currentGate = m_gates[0];
+        m_audioSource.clip = m_onboardingAudio;
+        m_audioSource.Play();
+        //m_fogs.ShowSurroundFogAt(true, false);
+        //m_fogs.ShowCentreFogAt(true);
+        m_torchLights.ShowLight(true, Vector3.zero);
+        
+        //HIDE ONBOARDING/CURRENT GATE CONTENTS
+        m_onboarding.gameObject.SetActive(false);
+        m_gate_1_contents.gameObject.SetActive(true);
+    }
+
     private void EvaluateChoice(int choice)
     {
+        if (m_gameState == GameState.End)
+        {
+            return;
+        }
+
         m_audioSource.clip = m_currentGate.Choices[choice].Sound;
         m_audioSource.Play();
         
@@ -127,31 +149,24 @@ public class ChoiceManager : MonoBehaviour
 
     private void TransitionToNextGate(bool angry, int choice)
     {
-        Vector3 fogPosition = new Vector3();
-        
-        switch (choice)
-        {
-            case 0:
-                fogPosition = m_choice_circle1.position;
-                break;
-            case 1:
-                fogPosition = m_choice_circle2.position;
-                break;
-            case 2:
-                fogPosition = m_choice_circle3.position;
-                break;
-            case 3:
-                fogPosition = m_choice_circle4.position;
-                break;
-        }
-        
-        m_fogs.ShowSwirlingAt(true, angry, fogPosition);
+        m_fogs.ShowSwirlingAt(true, angry, Vector3.zero);
+        m_torchLights.ShowLight(false, Vector3.zero);
+
         //m_fogs.ShowSurroundFogAt(true, false);
         //m_fogs.ShowCentreFogAt(true);
         
         //HIDE ONBOARDING/CURRENT GATE CONTENTS
         //SHOW NEW GATE CONTENTS
-        m_gameState++;
+
+        if (m_gameState != GameState.End)
+        {
+            m_gameState++;
+            
+            if (m_gameState != GameState.End)
+            {
+                m_currentGate = m_gates[(int)(m_gameState - 1)];
+            }
+        }
         
         switch (m_gameState)
         {
@@ -172,8 +187,6 @@ public class ChoiceManager : MonoBehaviour
                 m_gate_2_contents.gameObject.SetActive(false);
                 m_gate_3_contents.gameObject.SetActive(false);
                 m_gate_4_contents.gameObject.SetActive(false);
-                break;
-            default:
                 break;
         }
 
