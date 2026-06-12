@@ -73,8 +73,8 @@ public class ChoiceManager : MonoBehaviour
     private void TransitionToGateOne()
     {
         m_gameState++;
-        //m_fogs.ShowSurroundFogAt(true, fogPosition);
-        //m_fogs.ShowCentreFogAt(true, fogPosition);
+        //m_fogs.ShowSurroundFogAt(true, false);
+        //m_fogs.ShowCentreFogAt(true);
         
         //HIDE ONBOARDING/CURRENT GATE CONTENTS
         m_onboarding.gameObject.SetActive(false);
@@ -146,8 +146,8 @@ public class ChoiceManager : MonoBehaviour
         }
         
         m_fogs.ShowSwirlingAt(true, angry, fogPosition);
-        //m_fogs.ShowSurroundFogAt(true, fogPosition);
-        //m_fogs.ShowCentreFogAt(true, fogPosition);
+        //m_fogs.ShowSurroundFogAt(true, false);
+        //m_fogs.ShowCentreFogAt(true);
         
         //HIDE ONBOARDING/CURRENT GATE CONTENTS
         //SHOW NEW GATE CONTENTS

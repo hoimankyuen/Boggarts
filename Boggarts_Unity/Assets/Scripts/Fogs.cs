@@ -1,11 +1,13 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Fogs : MonoBehaviour
 {
     [Header("Components")] 
     [SerializeField] private ParticleSystem areaFogEffect;
-    [SerializeField] private ParticleSystem surroundFogEffect;
+    [SerializeField] private List<ParticleSystem> surroundFogEffects;
+    [SerializeField] private List<ParticleSystem> surroundFogEffectsAtExit;
     [SerializeField] private ParticleSystem centreFogEffect;
     [SerializeField] private Transform swirlingContainer;
     [SerializeField] private ParticleSystem swirlingFogEffect;
@@ -40,7 +42,7 @@ public class Fogs : MonoBehaviour
     private void Start()
     {
         ShowAreaFog(true);
-        //ShowSwirlingAt(true, false, new Vector3(0.5f, 0f, 0f));
+        ShowSwirlingAt(true, false, new Vector3(2.5f, 0f, 0f));
     }
 
     private void OnDrawGizmos()
@@ -63,25 +65,29 @@ public class Fogs : MonoBehaviour
         }
     }
 
-    public void ShowSurroundFogAt(bool show, Vector3 position)
+    public void ShowSurroundFogAt(bool show, bool hasExit)
     {
-        if (show)
+        foreach (ParticleSystem effect in surroundFogEffects)
         {
-            surroundFogEffect.Play();
-            surroundFogEffect.transform.position = new Vector3(position.x, effectHeight, position.z);
-        }
-        else
-        {
-            surroundFogEffect.Stop();
+            show = hasExit ? show && !surroundFogEffectsAtExit.Contains(effect) : show;
+            if (show)
+            {
+                effect.Play();
+                effect.transform.position = new Vector3(0f, effectHeight, 0f);
+            }
+            else
+            {
+                effect.Stop();
+            }
         }
     }
 
-    public void ShowCentreFogAt(bool show, Vector3 position)
+    public void ShowCentreFogAt(bool show)
     {
         if (show)
         {
             centreFogEffect.Play();
-            centreFogEffect.transform.position = new Vector3(position.x, effectHeight, position.z);
+            centreFogEffect.transform.position = new Vector3(0f, effectHeight, 0f);
         }
         else
         {
