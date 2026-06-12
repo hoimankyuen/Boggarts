@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 158403156}
   - component: {fileID: 158403155}
   m_Layer: 0
-  m_Name: Choice2
+  m_Name: ChoiceWest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1183,10 +1183,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2aebdaf81fb8606c681da6fa3b294559, type: 2}
   - {fileID: 11400000, guid: e3f5a4c117ae3c414bab303c3c30881e, type: 2}
   - {fileID: 11400000, guid: 3152b4caf31a816cd91b89ee917b07cd, type: 2}
-  m_choice_circle1: {fileID: 1206544519}
-  m_choice_circle2: {fileID: 158403154}
+  m_choice_circle1: {fileID: 984458319}
+  m_choice_circle2: {fileID: 1206544519}
   m_choice_circle3: {fileID: 1106010920}
-  m_choice_circle4: {fileID: 984458319}
+  m_choice_circle4: {fileID: 158403154}
   m_gameState: 0
 --- !u!4 &393745372
 Transform:
@@ -1705,7 +1705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &643775180
 Transform:
   m_ObjectHideFlags: 0
@@ -2519,7 +2519,7 @@ GameObject:
   - component: {fileID: 984458321}
   - component: {fileID: 984458320}
   m_Layer: 0
-  m_Name: Choice4
+  m_Name: ChoiceNorth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3009,7 +3009,7 @@ GameObject:
   - component: {fileID: 1106010922}
   - component: {fileID: 1106010921}
   m_Layer: 0
-  m_Name: Choice3
+  m_Name: ChoiceSouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3490,7 +3490,7 @@ GameObject:
   - component: {fileID: 1206544521}
   - component: {fileID: 1206544520}
   m_Layer: 0
-  m_Name: Choice1
+  m_Name: ChoiceEast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5943,10 +5943,10 @@ Transform:
   m_Children:
   - {fileID: 1742797853}
   - {fileID: 1192709611}
-  - {fileID: 1206544519}
-  - {fileID: 158403154}
-  - {fileID: 1106010920}
   - {fileID: 984458319}
+  - {fileID: 1206544519}
+  - {fileID: 1106010920}
+  - {fileID: 158403154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2015935106

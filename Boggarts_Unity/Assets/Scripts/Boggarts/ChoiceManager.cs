@@ -127,7 +127,7 @@ public class ChoiceManager : MonoBehaviour
 
     private void EvaluateChoice(int choice)
     {
-        if (m_gameState == GameState.End)
+        if (m_gameState is GameState.Onboarding or GameState.End)
         {
             return;
         }
