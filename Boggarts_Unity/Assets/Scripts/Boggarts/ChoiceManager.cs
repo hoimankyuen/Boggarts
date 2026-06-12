@@ -9,6 +9,9 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private AudioClip m_onboardingAudio;
     [SerializeField] private AudioClip m_dogBarkAudio;
+    [SerializeField] private AudioClip m_whatsMyNameAudio;
+    [SerializeField] private AudioClip m_winAudio;
+    [SerializeField] private AudioClip m_lossAudio;
     [SerializeField] private InputReader m_InputReader;
     [SerializeField] private Fogs m_fogs;
     [SerializeField] private TorchLights m_torchLights;
@@ -138,13 +141,17 @@ public class ChoiceManager : MonoBehaviour
         m_audioSource.clip = m_currentGate.Choices[choice].Sound;
         m_audioSource.Play();
         
+        Debug.Log("You chose " + m_currentGate.Choices[choice] + "!");
+        
         if (m_currentGate.Choices[choice].IsGood)
         {
             TransitionToNextGate(true, choice);
+            Debug.Log("GOOD CHOICE");
         }
         else
         {
             TransitionToNextGate(false, choice);
+            Debug.Log("BAD CHOICE");
         }
     }
 
@@ -182,10 +189,22 @@ public class ChoiceManager : MonoBehaviour
                 m_gate_3_contents.gameObject.SetActive(true);
                 break;
             case GameState.Gate4:
+                m_audioSource.clip = m_whatsMyNameAudio;
+                m_audioSource.Play();
                 m_gate_3_contents.gameObject.SetActive(false);
                 m_gate_4_contents.gameObject.SetActive(true);
                 break;
             case GameState.End:
+                if (angry)
+                {
+                    m_audioSource.clip = m_winAudio;
+                    m_audioSource.Play();
+                }
+                else
+                {
+                    m_audioSource.clip = m_lossAudio;
+                    m_audioSource.Play();
+                }
                 m_gate_1_contents.gameObject.SetActive(false);
                 m_gate_2_contents.gameObject.SetActive(false);
                 m_gate_3_contents.gameObject.SetActive(false);

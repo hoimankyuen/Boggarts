@@ -1334,6 +1334,9 @@ MonoBehaviour:
   m_audioSource: {fileID: 112426443}
   m_onboardingAudio: {fileID: 8300000, guid: 8ca82e596100fcda4b42790453cc56a4, type: 3}
   m_dogBarkAudio: {fileID: 8300000, guid: 3f2b882167d1a6c9189bdd6e5aded76b, type: 3}
+  m_whatsMyNameAudio: {fileID: 8300000, guid: 034dd865fcac5cff0aadd20388cb85d8, type: 3}
+  m_winAudio: {fileID: 8300000, guid: e382e9794c3cf2641a41d12da2a59b85, type: 3}
+  m_lossAudio: {fileID: 8300000, guid: 0712fd34d0f96189bad022e9c283ff09, type: 3}
   m_InputReader: {fileID: 11400000, guid: c7fc619696fbc354f935b4ae0e11fc0c, type: 2}
   m_fogs: {fileID: 1192709612}
   m_torchLights: {fileID: 451186021}
