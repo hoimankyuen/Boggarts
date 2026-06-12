@@ -1464,6 +1464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cottage
       objectReference: {fileID: 0}
+    - target: {fileID: 8703526358478343174, guid: b9e49a70099d0244cb0ea5bc51d03485, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
