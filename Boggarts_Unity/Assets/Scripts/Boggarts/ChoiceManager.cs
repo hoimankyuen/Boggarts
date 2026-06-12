@@ -70,6 +70,7 @@ public class ChoiceManager : MonoBehaviour
         m_InputReader.Button_West += OnButtonWest;
         m_InputReader.Button_South += OnButtonSouth;
         m_InputReader.Start += OnStartManually;
+        m_InputReader.Reset += ResetGame;
         
         m_gameState = GameState.Onboarding;
         
@@ -113,6 +114,7 @@ public class ChoiceManager : MonoBehaviour
     
     private void OnStartManually()
     {
+        if (m_gameState != GameState.Onboarding) return;
         CancelInvoke(nameof(TransitionToGateOne));
         TransitionToGateOne();
     }
@@ -176,7 +178,7 @@ public class ChoiceManager : MonoBehaviour
                 m_currentGate = m_gates[(int)(m_gameState - 1)];
             }
         }
-        
+
         switch (m_gameState)
         {
             case GameState.Gate2:
@@ -206,6 +208,7 @@ public class ChoiceManager : MonoBehaviour
                     m_audioSource.clip = m_lossAudio;
                     m_audioSource.Play();
                 }
+
                 m_gate_1_contents.gameObject.SetActive(false);
                 m_gate_2_contents.gameObject.SetActive(false);
                 m_gate_3_contents.gameObject.SetActive(false);
@@ -213,8 +216,21 @@ public class ChoiceManager : MonoBehaviour
                 m_creditsTextAnimator.Play("CreditsPlay");
                 break;
         }
-        
-        
+    }
 
+    private void ResetGame()
+    {
+        m_gameState = GameState.Onboarding;
+        m_gate_1_contents.gameObject.SetActive(false);
+        m_gate_2_contents.gameObject.SetActive(false);
+        m_gate_3_contents.gameObject.SetActive(false);
+        m_gate_4_contents.gameObject.SetActive(false);
+        m_onboarding.gameObject.SetActive(true);
+        m_fogs.ShowAreaFog(false);
+        m_fogs.ShowSurroundFogAt(false, false);
+        m_fogs.ShowSwirlingAt(false, false, Vector3.zero);
+        m_torchLights.ShowLight(false, Vector3.zero);
+        m_audioSource.Stop();
+        Invoke(nameof(TransitionToGateOne), 20f);
     }
 }

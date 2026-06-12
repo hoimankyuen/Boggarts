@@ -22,6 +22,7 @@ namespace Input
         public UnityAction Button_West = delegate {  };
         public UnityAction Button_South = delegate {  };
         public UnityAction Start = delegate {  };
+        public UnityAction Reset = delegate {  };
         
         public UnityAction<float> Move = delegate {  };
 
@@ -84,6 +85,14 @@ namespace Input
             if (context.performed)
             {
                 Start?.Invoke();
+            }
+        }
+
+        public void OnReset(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                Reset?.Invoke();
             }
         }
     }
