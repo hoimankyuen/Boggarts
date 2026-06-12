@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChoiceManager : MonoBehaviour
 {
     [SerializeField] private InputReader m_InputReader;
+    [SerializeField] private Fogs m_fogs;
     
     public static ChoiceManager Instance;
 
@@ -40,26 +41,45 @@ public class ChoiceManager : MonoBehaviour
     private void OnButtonNorth()
     {
         Debug.Log("OnButtonNorth");
-        m_gate_1_contents.gameObject.SetActive(true);
+        EvaluateChoice(0);
     }
 
     private void OnButtonEast()
     {
         Debug.Log("OnButtonEast");
-        m_gate_2_contents.gameObject.SetActive(true);
+        EvaluateChoice(1);
     }
     
     private void OnButtonSouth()
     {
         Debug.Log("OnButtonSouth");
-        m_gate_3_contents.gameObject.SetActive(true);
+        EvaluateChoice(2);
     }
 
     private void OnButtonWest()
     {
         Debug.Log("OnButtonWest");
-        m_gate_4_contents.gameObject.SetActive(true);
+        EvaluateChoice(3);
     }
 
-    
+    private void EvaluateChoice(int choice)
+    {
+        //PLAY SOUND m_currentGate.Choices[choice].Sound
+        
+        if (m_currentGate.Choices[choice].IsGood)
+        {
+            TransitionToNextGate(false);
+        }
+        else
+        {
+            TransitionToNextGate(true);
+        }
+    }
+
+    private void TransitionToNextGate(bool angry)
+    {
+        m_fogs.ShowSwirlingAt(true, angry, Vector3.zero);
+        //m_fogs.ShowSurroundFogAt(true);
+        m_fogs.ShowCentreFogAt(true, Vector3.zero);
+    }
 }
