@@ -71,24 +71,7 @@ public class ChoiceManager : MonoBehaviour
         Invoke(nameof(TransitionToGateOne), 20f);
     }
 
-    private void OnStartManually()
-    {
-        CancelInvoke(nameof(TransitionToGateOne));
-        TransitionToGateOne();
-    }
-
-    private void TransitionToGateOne()
-    {
-        m_gameState = GameState.Gate1;
-        m_currentGate = m_gates[0];
-        //m_fogs.ShowSurroundFogAt(true, false);
-        //m_fogs.ShowCentreFogAt(true);
-        
-        //HIDE ONBOARDING/CURRENT GATE CONTENTS
-        m_onboarding.gameObject.SetActive(false);
-        m_gate_1_contents.gameObject.SetActive(true);
-        
-    }
+    #region ButtonInputs
 
     private void OnButtonNorth()
     {
@@ -118,8 +101,34 @@ public class ChoiceManager : MonoBehaviour
         EvaluateChoice(3);
     }
 
+    #endregion
+    
+    
+    private void OnStartManually()
+    {
+        CancelInvoke(nameof(TransitionToGateOne));
+        TransitionToGateOne();
+    }
+
+    private void TransitionToGateOne()
+    {
+        m_gameState = GameState.Gate1;
+        m_currentGate = m_gates[0];
+        //m_fogs.ShowSurroundFogAt(true, false);
+        //m_fogs.ShowCentreFogAt(true);
+        
+        //HIDE ONBOARDING/CURRENT GATE CONTENTS
+        m_onboarding.gameObject.SetActive(false);
+        m_gate_1_contents.gameObject.SetActive(true);
+    }
+
     private void EvaluateChoice(int choice)
     {
+        if (m_gameState == GameState.End)
+        {
+            return;
+        }
+
         m_audioSource.clip = m_currentGate.Choices[choice].Sound;
         m_audioSource.Play();
         
@@ -159,9 +168,16 @@ public class ChoiceManager : MonoBehaviour
         
         //HIDE ONBOARDING/CURRENT GATE CONTENTS
         //SHOW NEW GATE CONTENTS
-        m_gameState++;
-        
-        m_currentGate = m_gates[(int)(m_gameState - 1)];
+
+        if (m_gameState != GameState.End)
+        {
+            m_gameState++;
+            
+            if (m_gameState != GameState.End)
+            {
+                m_currentGate = m_gates[(int)(m_gameState - 1)];
+            }
+        }
         
         switch (m_gameState)
         {
@@ -182,8 +198,6 @@ public class ChoiceManager : MonoBehaviour
                 m_gate_2_contents.gameObject.SetActive(false);
                 m_gate_3_contents.gameObject.SetActive(false);
                 m_gate_4_contents.gameObject.SetActive(false);
-                break;
-            default:
                 break;
         }
 

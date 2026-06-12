@@ -44,22 +44,34 @@ namespace Input
 
         public void OnButton_North(InputAction.CallbackContext context)
         {
-            Button_North?.Invoke();
+            if (context.performed)
+            {
+                Button_North?.Invoke(); 
+            }
         }
 
         public void OnButton_West(InputAction.CallbackContext context)
         {
-            Button_West?.Invoke();
+            if (context.performed)
+            {
+                Button_West?.Invoke(); 
+            }
         }
 
         public void OnButton_South(InputAction.CallbackContext context)
         {
-            Button_South?.Invoke();
+            if (context.performed)
+            {
+                Button_South?.Invoke();
+            }
         }
 
         public void OnButton_East(InputAction.CallbackContext context)
         {
-            Button_East?.Invoke();
+            if (context.performed)
+            {
+                Button_East?.Invoke();
+            }
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -69,7 +81,10 @@ namespace Input
 
         public void OnStart(InputAction.CallbackContext context)
         {
-            Start?.Invoke();
+            if (context.performed)
+            {
+                Start?.Invoke();
+            }
         }
     }
 }
