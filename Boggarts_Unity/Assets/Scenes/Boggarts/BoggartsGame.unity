@@ -1040,17 +1040,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f595523564c2cc1b49f956d8ae68b986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceManager
+  m_audioSource: {fileID: 0}
   m_InputReader: {fileID: 11400000, guid: c7fc619696fbc354f935b4ae0e11fc0c, type: 2}
   m_fogs: {fileID: 1192709612}
   m_currentGate: {fileID: 0}
+  m_onboarding: {fileID: 0}
   m_gate_1_contents: {fileID: 643775180}
   m_gate_2_contents: {fileID: 1767848024}
   m_gate_3_contents: {fileID: 882419498}
   m_gate_4_contents: {fileID: 368119956}
+  m_gates: []
   m_choice_circle1: {fileID: 1206544519}
   m_choice_circle2: {fileID: 158403154}
   m_choice_circle3: {fileID: 1106010920}
   m_choice_circle4: {fileID: 984458319}
+  m_gameState: 0
 --- !u!4 &393745372
 Transform:
   m_ObjectHideFlags: 0
@@ -5065,6 +5069,7 @@ MonoBehaviour:
   customCameraPrefab: {fileID: 0}
   followObject: {fileID: 0}
   parentObject: {fileID: 0}
+  spoutResources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
   ndiResources: {fileID: 11400000, guid: 69304b86950074db7ba8caba75214004, type: 2}
 --- !u!4 &1679173601
 Transform:
