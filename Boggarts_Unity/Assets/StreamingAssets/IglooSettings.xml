@@ -9,7 +9,7 @@
     <walkSpeed>5</walkSpeed>
     <smoothTime>10</smoothTime>
     <optitrackControllerRigidBodyID>2</optitrackControllerRigidBodyID>
-    <crosshairHideMode>0</crosshairHideMode>
+    <crosshairHideMode>2</crosshairHideMode>
     <isCrosshair3D>false</isCrosshair3D>
   </PlayerSettings>
   <NetworkSettings>
