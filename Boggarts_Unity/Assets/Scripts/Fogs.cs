@@ -37,7 +37,7 @@ public class Fogs : MonoBehaviour
     private void Start()
     {
         ShowAreaFog(true);
-        ShowSwirlingAt(true, false, new Vector3(0.5f, 0f, 0f));
+        //ShowSwirlingAt(true, false, new Vector3(0.5f, 0f, 0f));
     }
 
     private void OnDrawGizmos()
