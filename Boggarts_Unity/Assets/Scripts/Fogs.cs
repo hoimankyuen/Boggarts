@@ -139,7 +139,7 @@ public class Fogs : MonoBehaviour
         basePosition.y = 0f;
         position.y = 0f;
 
-        swirlingContainer.transform.position = position + (position - basePosition).normalized * swirlRadius + new Vector3(0f, effectHeight, 0f);
+        swirlingContainer.transform.position = position + Vector3.forward * swirlRadius + new Vector3(0f, effectHeight, 0f);
         while (true)
         {
             swirlingContainer.transform.position = RotatePointAroundPivot(swirlingContainer.transform.position, position,  swirlSpeed * Time.deltaTime);

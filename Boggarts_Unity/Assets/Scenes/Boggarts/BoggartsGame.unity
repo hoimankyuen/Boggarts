@@ -6790,6 +6790,7 @@ MonoBehaviour:
   customCameraPrefab: {fileID: 0}
   followObject: {fileID: 0}
   parentObject: {fileID: 0}
+  spoutResources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
   ndiResources: {fileID: 11400000, guid: 69304b86950074db7ba8caba75214004, type: 2}
 --- !u!4 &1679173601
 Transform:
