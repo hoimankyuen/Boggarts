@@ -11,6 +11,9 @@ public class Fogs : MonoBehaviour
     [SerializeField] private ParticleSystem swirlingFogEffect;
     [SerializeField] private ParticleSystem spookLightEffect;
 
+    [Header("General Settings")]
+    [SerializeField] private float effectHeight;
+    
     [Header("Swirling Settings")] 
     [SerializeField] private float swirlRadius;
     [SerializeField] private float swirlSpeed;
@@ -65,7 +68,7 @@ public class Fogs : MonoBehaviour
         if (show)
         {
             surroundFogEffect.Play();
-            surroundFogEffect.transform.position = new Vector3(position.x, 1f, position.z);
+            surroundFogEffect.transform.position = new Vector3(position.x, effectHeight, position.z);
         }
         else
         {
@@ -78,7 +81,7 @@ public class Fogs : MonoBehaviour
         if (show)
         {
             centreFogEffect.Play();
-            centreFogEffect.transform.position = new Vector3(position.x, 1f, position.z);
+            centreFogEffect.transform.position = new Vector3(position.x, effectHeight, position.z);
         }
         else
         {
@@ -131,7 +134,7 @@ public class Fogs : MonoBehaviour
         basePosition.y = 0f;
         position.y = 0f;
 
-        swirlingContainer.transform.position = position + (position - basePosition).normalized * swirlRadius + new Vector3(0f, 1f, 0f);
+        swirlingContainer.transform.position = position + (position - basePosition).normalized * swirlRadius + new Vector3(0f, effectHeight, 0f);
         while (true)
         {
             swirlingContainer.transform.position = RotatePointAroundPivot(swirlingContainer.transform.position, position,  swirlSpeed * Time.deltaTime);
