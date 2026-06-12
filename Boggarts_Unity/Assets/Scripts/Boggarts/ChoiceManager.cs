@@ -80,6 +80,6 @@ public class ChoiceManager : MonoBehaviour
     {
         m_fogs.ShowSwirlingAt(true, angry, Vector3.zero);
         //m_fogs.ShowSurroundFogAt(true);
-        m_fogs.ShowCentreFogAt(true, Vector3.zero);
+        m_fogs.ShowCentreFogAt(true);
     }
 }
