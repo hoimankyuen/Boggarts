@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Bell
   m_EditorClassIdentifier: Assembly-CSharp::Choice
   IsGood: 0
-  Sound: {fileID: 0}
-  Scene: {fileID: 0}
+  Sound: {fileID: 8300000, guid: b7bb05bc7bdda4e1e8ee707ef3297638, type: 3}

@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Feather
   m_EditorClassIdentifier: Assembly-CSharp::Choice
   IsGood: 0
-  Sound: {fileID: 0}
-  Scene: {fileID: 0}
+  Sound: {fileID: 8300000, guid: a30ba3ade25d47a8b98f517563748716, type: 3}

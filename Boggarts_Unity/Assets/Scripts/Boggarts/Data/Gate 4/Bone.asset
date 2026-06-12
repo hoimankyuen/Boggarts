@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Bone
   m_EditorClassIdentifier: Assembly-CSharp::Choice
   IsGood: 0
-  Sound: {fileID: 0}
-  Scene: {fileID: 0}
+  Sound: {fileID: 8300000, guid: 155018c353f1da4d89b604bbefb38a72, type: 3}
