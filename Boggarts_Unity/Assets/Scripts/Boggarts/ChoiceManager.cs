@@ -10,6 +10,7 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField] private AudioClip m_onboardingAudio;
     [SerializeField] private InputReader m_InputReader;
     [SerializeField] private Fogs m_fogs;
+    [SerializeField] private TorchLights m_torchLights;
     
     public static ChoiceManager Instance;
 
@@ -119,6 +120,7 @@ public class ChoiceManager : MonoBehaviour
         m_audioSource.Play();
         //m_fogs.ShowSurroundFogAt(true, false);
         //m_fogs.ShowCentreFogAt(true);
+        m_torchLights.ShowLight(true, Vector3.zero);
         
         //HIDE ONBOARDING/CURRENT GATE CONTENTS
         m_onboarding.gameObject.SetActive(false);
@@ -147,25 +149,9 @@ public class ChoiceManager : MonoBehaviour
 
     private void TransitionToNextGate(bool angry, int choice)
     {
-        Vector3 fogPosition = new Vector3();
-        
-        switch (choice)
-        {
-            case 0:
-                fogPosition = m_choice_circle1.position;
-                break;
-            case 1:
-                fogPosition = m_choice_circle2.position;
-                break;
-            case 2:
-                fogPosition = m_choice_circle3.position;
-                break;
-            case 3:
-                fogPosition = m_choice_circle4.position;
-                break;
-        }
-        
-        m_fogs.ShowSwirlingAt(true, angry, fogPosition);
+        m_fogs.ShowSwirlingAt(true, angry, Vector3.zero);
+        m_torchLights.ShowLight(false, Vector3.zero);
+
         //m_fogs.ShowSurroundFogAt(true, false);
         //m_fogs.ShowCentreFogAt(true);
         
