@@ -814,6 +814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MossyStone
       objectReference: {fileID: 0}
+    - target: {fileID: 8526812097512068555, guid: e240c6f527240f441880c9814a2d9a26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9015787266798620529, guid: e240c6f527240f441880c9814a2d9a26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1652,6 +1656,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37457194ea3c42f46b9f75781ca112c6, type: 3}
+--- !u!1001 &7835250071039453067
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.09152
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.226
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.53754
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -3.7493994e-33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -6.123234e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 6.123234e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956806701736105847, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441312395518660045, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
+      propertyPath: m_Name
+      value: Dirt
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58b5d4413659af141b8f5bd02547a8b5, type: 3}
 --- !u!1001 &8361846056955315059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1855,3 +1916,4 @@ SceneRoots:
   - {fileID: 1523762904680456322}
   - {fileID: 1903616530313329961}
   - {fileID: 5372116449089498946}
+  - {fileID: 7835250071039453067}
