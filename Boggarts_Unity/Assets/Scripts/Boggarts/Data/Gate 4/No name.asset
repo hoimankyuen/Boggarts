@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: No name
   m_EditorClassIdentifier: Assembly-CSharp::Choice
   IsGood: 1
-  Sound: {fileID: 8300000, guid: 4ca9a253390f025f6a3889ce963c4086, type: 3}
+  Sound: {fileID: 8300000, guid: 67227d0a9cdb2cae7b05c84fd12ef595, type: 3}

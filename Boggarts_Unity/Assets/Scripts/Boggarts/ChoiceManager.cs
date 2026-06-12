@@ -15,6 +15,7 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField] private InputReader m_InputReader;
     [SerializeField] private Fogs m_fogs;
     [SerializeField] private TorchLights m_torchLights;
+    [SerializeField] private Animator m_creditsTextAnimator;
     
     public static ChoiceManager Instance;
 
@@ -209,6 +210,7 @@ public class ChoiceManager : MonoBehaviour
                 m_gate_2_contents.gameObject.SetActive(false);
                 m_gate_3_contents.gameObject.SetActive(false);
                 m_gate_4_contents.gameObject.SetActive(false);
+                m_creditsTextAnimator.Play("CreditsPlay");
                 break;
         }
         
