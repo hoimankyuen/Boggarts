@@ -38755,7 +38755,7 @@ MonoBehaviour:
   swirlingFogEffect: {fileID: 7759910112179779699}
   spookLightEffect: {fileID: 7005798593740185024}
   effectHeight: 0
-  swirlRadius: 4
+  swirlRadius: 3
   swirlSpeed: 75
   spookDisappearChance: 0.33
   spookRadius: 0.75
