@@ -120,8 +120,29 @@ public class ChoiceManager : MonoBehaviour
         CancelInvoke(nameof(TransitionToGateOne));
         TransitionToGateOne();
     }
-
+    
     private void TransitionToGateOne()
+    {
+        if (_transitionCoroutine != null)
+            return;
+
+        _transitionCoroutine = StartCoroutine(TransitionToGateOneSequence());
+    }
+    
+    private IEnumerator TransitionToGateOneSequence()
+    {
+        m_fogs.ShowSurroundFogAt(true, false);
+        yield return new WaitForSeconds(1f);
+        
+        TransitionToGateOneInternal();
+        yield return new WaitForSeconds(1f);
+        
+        m_fogs.ShowSurroundFogAt(false, false);
+        m_torchLights.ShowLight(true, Vector3.zero);
+        _transitionCoroutine = null;
+    }
+    
+    private void TransitionToGateOneInternal()
     {
         m_gameState = GameState.Gate1;
         m_currentGate = m_gates[0];
