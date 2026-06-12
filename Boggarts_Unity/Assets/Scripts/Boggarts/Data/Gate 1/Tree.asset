@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae217f06800e4177181f5c39611c232b, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: Assembly-CSharp::Choice
-  IsGood: 0
-  Sound: {fileID: 0}
-  SceneName: Gate 4
+  IsGood: 1
+  Sound: {fileID: 8300000, guid: deaa2d8c48ffe03878de56fc138dc15a, type: 3}

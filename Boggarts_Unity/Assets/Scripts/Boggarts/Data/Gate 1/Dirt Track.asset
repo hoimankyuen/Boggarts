@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Dirt Track
   m_EditorClassIdentifier: Assembly-CSharp::Choice
   IsGood: 0
-  Sound: {fileID: 0}
-  SceneName: Gate 1
+  Sound: {fileID: 8300000, guid: 745dc45b392ee0468aaceaa398d8a527, type: 3}

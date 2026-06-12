@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae217f06800e4177181f5c39611c232b, type: 3}
   m_Name: Tor with face
   m_EditorClassIdentifier: Assembly-CSharp::Choice
-  IsGood: 0
-  Sound: {fileID: 0}
-  SceneName: Gate 3
+  IsGood: 1
+  Sound: {fileID: 8300000, guid: c15229e02a4b7b6679b0e6676354afcd, type: 3}

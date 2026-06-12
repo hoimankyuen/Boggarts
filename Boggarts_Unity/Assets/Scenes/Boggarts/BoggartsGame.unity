@@ -1169,6 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceManager
   m_audioSource: {fileID: 112426443}
+  m_onboardingAudio: {fileID: 8300000, guid: 8ca82e596100fcda4b42790453cc56a4, type: 3}
   m_InputReader: {fileID: 11400000, guid: c7fc619696fbc354f935b4ae0e11fc0c, type: 2}
   m_fogs: {fileID: 1192709612}
   m_currentGate: {fileID: 0}

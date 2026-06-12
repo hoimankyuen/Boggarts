@@ -7,6 +7,7 @@ using UnityEngine;
 public class ChoiceManager : MonoBehaviour
 {
     [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioClip m_onboardingAudio;
     [SerializeField] private InputReader m_InputReader;
     [SerializeField] private Fogs m_fogs;
     
@@ -114,6 +115,8 @@ public class ChoiceManager : MonoBehaviour
     {
         m_gameState = GameState.Gate1;
         m_currentGate = m_gates[0];
+        m_audioSource.clip = m_onboardingAudio;
+        m_audioSource.Play();
         //m_fogs.ShowSurroundFogAt(true, false);
         //m_fogs.ShowCentreFogAt(true);
         
