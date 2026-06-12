@@ -80,7 +80,7 @@ public class Fogs : MonoBehaviour
             }
         }
     }
-
+    
     public void ShowCentreFogAt(bool show)
     {
         if (show)
