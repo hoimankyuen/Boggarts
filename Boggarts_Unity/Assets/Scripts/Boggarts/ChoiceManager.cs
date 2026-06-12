@@ -206,6 +206,9 @@ public class ChoiceManager : MonoBehaviour
         
         m_fogs.ShowSurroundFogAt(false, false);
         _transitionCoroutine = null;
+        
+        m_fogs.ShowSwirlingAt(false, false,  Vector3.zero);
+        m_torchLights.ShowLight(true, Vector3.zero);
     }
     
     private void TransitionToNextGateInternal(bool angry, int choice)
@@ -281,6 +284,8 @@ public class ChoiceManager : MonoBehaviour
         m_fogs.ShowSwirlingAt(false, false, Vector3.zero);
         m_torchLights.ShowLight(false, Vector3.zero);
         m_audioSource.Stop();
+        StopAllCoroutines();
+        _transitionCoroutine = null;
         Invoke(nameof(TransitionToGateOne), 20f);
     }
 }
